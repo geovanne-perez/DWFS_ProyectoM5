@@ -22,7 +22,7 @@ function App() {
       <div className='container'>
         <h2 className='text-center'>Selected chart: {btnSel}</h2>
       </div>
-          <Charts/>
+          <Charts ChartSelection = {btnSel}/>
     </>
   )
 }
