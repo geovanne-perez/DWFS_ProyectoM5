@@ -4,47 +4,25 @@ import { faCoffee, faChess } from "@fortawesome/free-solid-svg-icons";
 
 const Header = ({headerSelButton}) => {
 
-// Hook State
-// Use State returns an array with two elements:
-// 1. The current state value
-// 2. A function that lets you update it
-
 const [btnState1,setBtnState1] = useState('nav-link active'); // btnState = '', setBtnState = function('');
 const [btnState2,setBtnState2] = useState('nav-link'); // btnState = '', setBtnState = function('');
-const [btnState3,setBtnState3] = useState('nav-link'); // btnState = '', setBtnState = function('');
-const [btnState4,setBtnState4] = useState('nav-link'); // btnState = '', setBtnState = function('');
 
-// HandlerButton function
-// This function will be called when the user clicks on the button
-// It will change the value of btnState to 'nav-link active'
-// This will change the style of the button
-// The button will be highlighted
 const HandlerButton = (e) => {
     setBtnState1('nav-link');    
     setBtnState2('nav-link');
-    setBtnState3('nav-link');
-    setBtnState4('nav-link');
     headerSelButton(e.target.textContent);
     switch (e.target.textContent) {
-        case 'Top by Rank':
+        case 'Show Rank':
             setBtnState1('nav-link active');
             headerSelButton(e.target.textContent);
             break;
-        case 'Top by Win Count':
+        case 'Show Games':
             setBtnState2('nav-link active');
-            break;
-        case 'Top by Country':
-            setBtnState3('nav-link active');
-            break;
-        case 'Top Avatars':
-            setBtnState4('nav-link active');
             break;
         default:
             break;
     }
-    
 }
-
   return (
     <>
       <div className="container">
@@ -61,22 +39,12 @@ const HandlerButton = (e) => {
           <ul className="nav nav-pills">
             <li className="nav-item">
               <a href="#" className={btnState1} onClick={HandlerButton}> 
-                Top by Rank
+                Show Rank
                 </a>
             </li>
             <li className="nav-item">
               <a href="#" className={btnState2} onClick={HandlerButton}>
-                Top by Win Count
-              </a>
-            </li>
-            <li className="nav-item">
-              <a href="#" className={btnState3} onClick={HandlerButton}>
-                Top by Country
-              </a>
-            </li>
-            <li className="nav-item">
-              <a href="#" className={btnState4} onClick={HandlerButton}>
-                Top Avatars
+                Show Games
               </a>
             </li>
           </ul>

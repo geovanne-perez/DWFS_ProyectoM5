@@ -1,12 +1,13 @@
 import { useState } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './Components/Header';
-import Charts from './Components/Charts';
+import ChessTableRank from './Components/TopRank';
+import ChessTableWinCount from './Components/TopWinCount';
 
 
 function App() {
 
-  const [btnSel,setBtnSel] = useState('Top by Rank');
+  const [btnSel,setBtnSel] = useState('Show Rank');
 
   const handleHeaderButtons = (headerSelButton) => {
     setBtnSel(headerSelButton)
@@ -19,10 +20,7 @@ function App() {
           <p className='text-light pt-2 pb-4 p-3'>Alumno: José Geovanne Pérez Meza </p>
       </div>
       <Header headerSelButton = {handleHeaderButtons}/>
-      <div className='container'>
-        <h2 className='text-center'>Selected chart: {btnSel}</h2>
-      </div>
-          <Charts ChartSelection = {btnSel}/>
+      {btnSel === 'Show Rank' ? <ChessTableRank/> : <ChessTableWinCount/>}
     </>
   )
 }
